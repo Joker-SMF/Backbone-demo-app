@@ -13,12 +13,9 @@
 		id: "books_listing",
 		template: "#books_listing-template",
 		itemView: App.views.indexItemView,
+		customEl: 'tbody.individual_book',
 
 		initialize: function() {
 		},
-
-		appendHtml: function(collectionView, itemView){
-			collectionView.$("tbody").append(itemView.el);
-		}
 	});
 })();

@@ -27,4 +27,10 @@
 			Backbone.history.start();
 		}
 	});
+
+    Backbone.Marionette.CompositeView = Backbone.Marionette.CompositeView.extend({
+        appendHtml: function(collectionView, itemView){
+            collectionView.$(this.customEl).append(itemView.el);
+        }
+    });
 })();
