@@ -21,6 +21,7 @@
 		<script src="js/libs/backbone.eventbinder.js" type="text/javascript"></script>
 		<script src="js/libs/backbone.wreqr.js" type="text/javascript"></script>
 		<script src="js/libs/backbone.marionette.js" type="text/javascript"></script>
+		<script src="js/libs/iscroll.js" type="text/javascript"></script>
 
 		<script type="text/javascript" src="js/application.js"></script>
 		<script type="text/javascript" src="js/helpers/appRouter.js"></script>
@@ -44,21 +45,21 @@
 		</div>
 
 		<script type="text/template" id="books_listing-template">
-	      <thead>
-	        <tr class='header'>
-	          <th>Name</th>
-	        </tr>
-	      </thead>
-	      <tbody class="individual_book">
-	      </tbody>
+			<thead>
+				<tr class='header'>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody class="individual_book">
+			</tbody>
 	    </script>
 
 	    <script type="text/template" id="individual_book-template">
-	      <td class="book_name"><%= volumeInfo.title %></td>
+			<td class="book_name"><%= volumeInfo.title %></td>
 	    </script>
 
 		<script type="text/template" id="book_details-template">
-	      <div class="book_details"><%if(typeof(volumeInfo) !== 'undefined') {%><%=volumeInfo.description%><%} %></div>
+			<div class="scroll_class"><div class="book_details"><%if(typeof(volumeInfo) !== 'undefined') {%><%=volumeInfo.description%><%} %></div></div>
 	    </script>
 	</body>
 </html>

@@ -44,6 +44,7 @@
 	Backbone.Marionette.ItemView = Backbone.Marionette.ItemView.extend({
         render: function() {
 			if(this.model) {
+				this.applyScroll = true;
 				this.listenTo(this.model, "change", this.render, this);
 			}
 			this.isClosed = false;
@@ -53,10 +54,14 @@
 			data = this.mixinTemplateHelpers(data);
 			var template = this.getTemplate();
 			var html = Marionette.Renderer.render(template, data);
+			
 			this.$el.html(html);
 			this.bindUIElements();
 			this.triggerMethod("render", this);
 			this.triggerMethod("item:rendered", this);
+			if (_.isObject(this.scrollArea) && this.applyScroll) {
+				this.addScroll();
+			}
 			return this;
 		},
 
@@ -64,6 +69,18 @@
 			this.unbind();
 			this.$el.empty().unbind();
 			this.remove();
+		},
+
+		addScroll: function() {
+			var _this = this,
+				initHeight = $(window).height(),
+				//keep adjust for android
+				adjustment = this.scrollArea.adjust || 0,
+				element = this.$el.find(this.scrollArea.element),
+				scrollHeight = initHeight - $(element[0]).offset().top - adjustment;
+
+			$(this.$el.find(element)[0]).css('min-height', scrollHeight);
+			this.custScroll = new iScroll($(element, this.$el).get(0));
 		}
     });
 })();
