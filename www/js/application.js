@@ -43,6 +43,9 @@
 
 	Backbone.Marionette.ItemView = Backbone.Marionette.ItemView.extend({
         render: function() {
+			if(this.model) {
+				this.listenTo(this.model, "change", this.render, this);
+			}
 			this.isClosed = false;
 			this.triggerMethod("before:render", this);
 			this.triggerMethod("item:before:render", this);
@@ -58,7 +61,6 @@
 		},
 
 		close : function() {
-			console.log('close called');
 			this.unbind();
 			this.$el.empty().unbind();
 			this.remove();
