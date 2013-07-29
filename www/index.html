@@ -31,6 +31,10 @@
 		<script type="text/javascript" src="js/models/indexModel.js"></script>
 		<script type="text/javascript" src="js/collections/indexCollection.js"></script>
 
+		<script type="text/javascript" src="js/controllers/bookDetailsController.js"></script>
+		<script type="text/javascript" src="js/views/bookDetailsView.js"></script>
+		<script type="text/javascript" src="js/models/bookDetailsModel.js"></script>
+
 		<script type="text/javascript" src="js/appStart.js"></script>
 	</head>
 
@@ -50,7 +54,11 @@
 	    </script>
 
 	    <script type="text/template" id="individual_book-template">
-	      <td><%= volumeInfo.title %></td>
+	      <td class="book_name"><%= volumeInfo.title %></td>
+	    </script>
+
+		<script type="text/template" id="book_details-template">
+	      <div class="book_details"><%if(typeof(volumeInfo) !== 'undefined') {%><%=volumeInfo.description%><%} %></div>
 	    </script>
 	</body>
 </html>

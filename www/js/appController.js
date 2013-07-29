@@ -4,7 +4,7 @@ App.controller = {
 	initialize : function() {},
 
 	beforeRoute : function(e, args) {
-		console.log('beforeroute')
+		console.log('beforeroute');
 	},
 
 	onRoute : function(route, linkedCall, params) {
@@ -22,9 +22,17 @@ App.controller = {
 
 	routeFuncs : {
 		index : function() {
-			console.log('calling index');
 			App.controller.subController({
 				name: 'indexPage'
+			})
+		},
+
+		bookDetails : function(id) {
+			App.controller.subController({
+				name: 'bookDetails',
+				urlParams : {
+					id: id
+				}
 			})
 		}
 	}

@@ -31,6 +31,37 @@
     Backbone.Marionette.CompositeView = Backbone.Marionette.CompositeView.extend({
         appendHtml: function(collectionView, itemView){
             collectionView.$(this.customEl).append(itemView.el);
-        }
+        },
+
+		close : function() {
+			this.unbind();
+			this.$el.empty();
+			this.closeChildren();
+			this.remove();
+		}
+    });
+
+	Backbone.Marionette.ItemView = Backbone.Marionette.ItemView.extend({
+        render: function() {
+			this.isClosed = false;
+			this.triggerMethod("before:render", this);
+			this.triggerMethod("item:before:render", this);
+			var data = this.serializeData();
+			data = this.mixinTemplateHelpers(data);
+			var template = this.getTemplate();
+			var html = Marionette.Renderer.render(template, data);
+			this.$el.html(html);
+			this.bindUIElements();
+			this.triggerMethod("render", this);
+			this.triggerMethod("item:rendered", this);
+			return this;
+		},
+
+		close : function() {
+			console.log('close called');
+			this.unbind();
+			this.$el.empty().unbind();
+			this.remove();
+		}
     });
 })();

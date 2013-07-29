@@ -7,6 +7,7 @@
 		appRoutes : {
 			'' : 'index',
 			'index' : 'index',
+			'book_details/:id' : 'bookDetails'
 		},
 
 		route: function(route, name, callback) {
