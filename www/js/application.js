@@ -28,6 +28,10 @@
 		}
 	});
 
+    App.vent.on('callController', function(obj){
+    	App.currentController[obj.func].apply(App.currentController, arguments);
+    });
+
     Backbone.Marionette.CompositeView = Backbone.Marionette.CompositeView.extend({
         appendHtml: function(collectionView, itemView){
         	if(this.customEl) {

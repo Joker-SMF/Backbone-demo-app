@@ -17,7 +17,7 @@ App.controller = {
 		};
 
 		var args = $.extend({}, defaults, params);
-		new App.subController[params.name](args);
+		App.currentController = new App.subController[params.name](args);
 	},
 
 	routeFuncs : {

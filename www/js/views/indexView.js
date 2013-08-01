@@ -16,9 +16,12 @@
 
 		bookName: function(e) {
 			e.preventDefault();
+
 			var id = this.model.get('id');
-			App.customRoutes.navigate('book_details/' + id, {
-				trigger : true
+			App.vent.trigger('callController', {
+				controller: 'indexPage',
+				func : 'test',
+				id: id
 			});
 		}
 	});
