@@ -37,11 +37,33 @@
         	}
         },
 
+        onShow: function() {
+        	if (_.isObject(this.scrollArea)) {
+				this.addScroll();
+			}
+        },
+
 		close : function() {
 			this.unbind();
 			this.$el.empty();
 			this.closeChildren();
 			this.remove();
+		},
+
+		addScroll: function() {
+			var scrollClass = (this.scrollArea.className) ? this.scrollArea.className : 'my_scroll';
+			$(this.scrollArea.element).wrap('<div class="'+ scrollClass +'"</div>');
+			scrollClass = '.' + scrollClass;
+
+			var _this = this,
+				initHeight = $(window).height(),
+				//keep adjust for android
+				adjustment = this.scrollArea.adjust || 0,
+				element = this.$el.find(scrollClass),
+				scrollHeight = initHeight - $(scrollClass).offset().top - adjustment;
+
+			$(this.$el.find(scrollClass)).css('min-height', scrollHeight);
+			this.custScroll = new iScroll($(scrollClass, this.$el).get(0));
 		}
     });
 

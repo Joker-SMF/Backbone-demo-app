@@ -29,6 +29,12 @@
 		customEl: 'show_book_details',
 		tagName: 'div',
 		className: 'books_listing',
+		scrollArea: {
+			applyScroll: false,
+			element: '.show_book_details',
+			adjust: 0,
+			className: 'my_scroll'
+		},
 		initialize: function() {
 		},
 	});
