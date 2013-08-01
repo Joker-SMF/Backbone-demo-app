@@ -11,6 +11,6 @@
             });
 
 			App[this.region].show(view);
-        },
+        }
     });
 })();

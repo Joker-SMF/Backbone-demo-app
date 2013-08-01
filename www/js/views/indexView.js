@@ -3,6 +3,9 @@
 
 	App.views.indexItemView = Backbone.Marionette.ItemView.extend({
 		template: "#individual_book-template",
+		tagName: "div",
+		className: "book_info",
+		childView: true,
 		events: {
 			'click .book_info' : 'bookName'
 		},
@@ -23,8 +26,9 @@
 	App.views.indexView = Backbone.Marionette.CompositeView.extend({
 		template: "#books_listing-template",
 		itemView: App.views.indexItemView,
-		customEl: '.individual_book',
-
+		customEl: 'show_book_details',
+		tagName: 'div',
+		className: 'books_listing',
 		initialize: function() {
 		},
 	});

@@ -21,7 +21,7 @@
         App.customRoutes.on('beforeroute', App.controller.beforeRoute);
 		App.customRoutes.on('onRoute', App.controller.onRoute);
     });
-    
+
     App.bind('initialize:after', function(options) {
 		if(Backbone.history) {
 			Backbone.history.start();
@@ -30,7 +30,11 @@
 
     Backbone.Marionette.CompositeView = Backbone.Marionette.CompositeView.extend({
         appendHtml: function(collectionView, itemView){
-            collectionView.$(this.customEl).append(itemView.el);
+        	if(this.customEl) {
+				collectionView.$('.' + this.customEl).append(itemView.el);
+        	} else {
+        		collectionView.$el.append(itemView.el);
+        	}
         },
 
 		close : function() {
@@ -47,6 +51,7 @@
 				this.applyScroll = true;
 				this.listenTo(this.model, "change", this.render, this);
 			}
+
 			this.isClosed = false;
 			this.triggerMethod("before:render", this);
 			this.triggerMethod("item:before:render", this);
@@ -54,8 +59,12 @@
 			data = this.mixinTemplateHelpers(data);
 			var template = this.getTemplate();
 			var html = Marionette.Renderer.render(template, data);
-			
-			this.$el.html(html);
+
+			if(this.childView) {
+				this.setElement(html);
+			} else {
+				this.$el.html(html);	
+			}			
 			this.bindUIElements();
 			this.triggerMethod("render", this);
 			this.triggerMethod("item:rendered", this);
