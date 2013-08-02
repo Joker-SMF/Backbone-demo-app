@@ -2,7 +2,7 @@
 	App.views = App.views || {};
 
 	App.views.indexItemView = Backbone.Marionette.ItemView.extend({
-		template: "#individual_book-template",
+		template: "index.item",
 		tagName: "div",
 		className: "book_info",
 		childView: true,
@@ -27,7 +27,7 @@
 	});
 
 	App.views.indexView = Backbone.Marionette.CompositeView.extend({
-		template: "#books_listing-template",
+		template: "index",
 		itemView: App.views.indexItemView,
 		customEl: 'show_book_details',
 		tagName: 'div',

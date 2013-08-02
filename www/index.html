@@ -28,7 +28,9 @@
 
 		<script type="text/javascript" src="js/application.js"></script>
 		<script type="text/javascript" src="js/helpers/appRouter.js"></script>
+		<script type="text/javascript" src="js/helpers/settings.js"></script>
 		<script type="text/javascript" src="js/appController.js"></script>
+		<script type="text/javascript" src="js/helpers/templateManager.js"></script>
 
 		<script type="text/javascript" src="js/controllers/indexController.js"></script>
 		<script type="text/javascript" src="js/views/indexView.js"></script>
@@ -46,18 +48,5 @@
 		<div id="bodyWrapper">
 			<div id='content'></div>
 		</div>
-
-		<script type="text/template" id="books_listing-template">
-			<div class="individual_book">Information</div>
-			<div class="show_book_details"></div>
-	    </script>
-
-	    <script type="text/template" id="individual_book-template">
-			<div class="book_info"><%= volumeInfo.title %></div>
-	    </script>
-
-		<script type="text/template" id="book_details-template">
-			<div class="scroll_class"><div class="book_details"><%if(typeof(volumeInfo) !== 'undefined') {%><%=volumeInfo.description%><%} %></div></div>
-	    </script>
 	</body>
 </html>

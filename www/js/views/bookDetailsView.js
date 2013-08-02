@@ -2,7 +2,7 @@
 	App.views = App.views || {};
 
 	App.views.bookDetailsView = Backbone.Marionette.ItemView.extend({
-		template: "#book_details-template",
+		template: "bookDetails",
 		tagName: 'div',
 		className: 'scroll_class',
 		scrollArea: {
