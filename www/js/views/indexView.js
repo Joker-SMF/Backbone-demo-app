@@ -7,7 +7,7 @@
 		className: "book_info",
 		childView: true,
 		events: {
-			'click .book_info' : 'bookName'
+			'click .book_info': 'bookName'
 		},
 
 		initialize: function() {
@@ -20,7 +20,7 @@
 			var id = this.model.get('id');
 			App.vent.trigger('callController', {
 				controller: 'indexPage',
-				func : 'test',
+				func: 'test',
 				id: id
 			});
 		}
@@ -38,7 +38,6 @@
 			adjust: 0,
 			className: 'my_scroll'
 		},
-		initialize: function() {
-		},
+		initialize: function() {},
 	});
 })();

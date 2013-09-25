@@ -4,10 +4,10 @@
 	App.routers = App.routers || {};
 
 	App.mainRouters = Backbone.Marionette.AppRouter.extend({
-		appRoutes : {
-			'' : 'index',
-			'index' : 'index',
-			'book_details/:id' : 'bookDetails'
+		appRoutes: {
+			'': 'index',
+			'index': 'index',
+			'book_details/:id': 'bookDetails'
 		},
 
 		route: function(route, name, callback) {

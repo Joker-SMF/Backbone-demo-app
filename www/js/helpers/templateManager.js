@@ -20,11 +20,12 @@
 			async: false,
 			success: function(data) {
 				template = data;
-			}, error: function(error) {
+			},
+			error: function(error) {
 				console.log('Error loading Template from: ' + templateUrl);
 			}
 		});
-		if (!template || template.length === 0){
+		if (!template || template.length === 0) {
 			throw 'Error loading Template from: ' + templateUrl;
 		}
 		return template;
