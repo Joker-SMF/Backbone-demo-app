@@ -12,7 +12,6 @@
 
 		initialize: function() {
 			_.bindAll(this, 'bookName');
-			console.log(this.model.attributes);
 		},
 
 		bookName: function(e) {
@@ -25,6 +24,9 @@
 				func: 'test',
 				id: id
 			});
+		},
+		onRender: function() {
+			this.delegateEvents();
 		}
 	});
 
@@ -40,6 +42,6 @@
 			adjust: 0,
 			className: 'my_scroll'
 		},
-		initialize: function() {},
+		initialize: function() {}
 	});
 })();
