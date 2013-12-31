@@ -1,4 +1,4 @@
-(function() {
+define(['js/collections/indexCollection', 'js/models/indexModel', 'js/views/indexView'], function(indexc, indexv) {
     App.subController = App.subController || {};
 
     App.subController.indexPage = Marionette.Controller.extend({
@@ -18,4 +18,4 @@
             });
         }
     });
-})();
+});

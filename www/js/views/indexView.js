@@ -12,12 +12,14 @@
 
 		initialize: function() {
 			_.bindAll(this, 'bookName');
+			console.log(this.model.attributes);
 		},
 
 		bookName: function(e) {
 			e.preventDefault();
 
 			var id = this.model.get('id');
+			console.log(id);
 			App.vent.trigger('callController', {
 				controller: 'indexPage',
 				func: 'test',

@@ -1,4 +1,4 @@
-(function() {
+define(['js/controllers/indexController', 'js/controllers/bookDetailsController'], function(indexController, bookDetailsController) {
 	window.App = window.App || {};
 
 	App.controller = {
@@ -23,7 +23,6 @@
 
 		routeFuncs: {
 			index: function() {
-				console.log('load index');
 				App.controller.subController({
 					name: 'indexPage'
 				});
@@ -39,4 +38,4 @@
 			}
 		}
 	};
-})();
+});
