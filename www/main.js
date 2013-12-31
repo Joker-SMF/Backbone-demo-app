@@ -26,7 +26,9 @@ require.config({
 		appRouter: 'js/helpers/appRouter',
 		settings: 'js/helpers/settings',
 		appController: 'js/appController',
-		templateManager: 'js/helpers/templateManager'
+		templateManager: 'js/helpers/templateManager',
+
+		indexController: 'js/controllers/indexController',
 	},
 	shim: {
 		underscore: {
@@ -37,32 +39,35 @@ require.config({
 			exports: 'Backbone'
 		},
 		backboneNested: {
-			deps: ['Backbone'],
+			deps: ['Backbone']
 		},
 		backboneEventbinder: {
-			deps: ['Backbone'],
+			deps: ['Backbone']
 		},
 		backboneWreqr: {
-			deps: ['Backbone'],
+			deps: ['Backbone']
 		},
 		backboneMarionette: {
-			deps: ['Backbone'],
+			deps: ['Backbone']
 		},
 		application: {
-			deps: ['Backbone', 'backboneMarionette'],
+			deps: ['Backbone', 'backboneMarionette']
 		},
 		appRouter: {
-			deps: ['Backbone', 'application'],
+			deps: ['Backbone', 'application', 'appController']
+		},
+		indexController: {
+			deps: ['appRouter']
 		},
 		settings: {
 			deps: ['application']
 		},
 		templateManager: {
-			deps: ['Backbone', 'backboneMarionette'],
+			deps: ['Backbone', 'backboneMarionette']
 		},
 	}
 });
 
-require(['jquery', 'underscore', 'Backbone', 'json2', 'backboneNested', 'backboneEventbinder', 'backboneWreqr', 'backboneMarionette', 'iScroll', 'application', 'appRouter', 'settings', 'appController', 'templateManager'], function($, _, Backbone, json2, backboneNested, backboneEventbinder, backboneWreqr, backboneMarionette, scroll, application, appRouter, settings, appController, templateManager) {
+require(['jquery', 'underscore', 'Backbone', 'json2', 'backboneNested', 'backboneEventbinder', 'backboneWreqr', 'backboneMarionette', 'iScroll', 'application', 'appRouter', 'settings', 'appController', 'templateManager', 'indexController'], function($, _, Backbone, json2, backboneNested, backboneEventbinder, backboneWreqr, backboneMarionette, scroll, application, appRouter, settings, appController, templateManager, index) {
 	App.start();
 });
