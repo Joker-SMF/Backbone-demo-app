@@ -7,7 +7,7 @@
 		className: "book_info",
 		childView: true,
 		events: {
-			'click .book_info': 'bookName'
+			'click': 'bookName'
 		},
 
 		initialize: function() {
