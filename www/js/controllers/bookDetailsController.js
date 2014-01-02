@@ -1,4 +1,4 @@
-(function() {
+define(['js/models/bookDetailsModel', 'js/views/bookDetailsView'], function(indexc, indexv) {
 	App.subController = App.subController || {};
 
 	App.subController.bookDetails = Marionette.Controller.extend({
@@ -17,4 +17,4 @@
 			App[this.region].show(view);
 		},
 	});
-})();
+});
