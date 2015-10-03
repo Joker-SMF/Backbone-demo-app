@@ -48,6 +48,55 @@
 			className: 'my_scroll'
 		},
 
-		initialize: function() {}
+		events: {
+			'keyup .searchInput': 'searchInput'
+		},
+
+		initialize: function() {
+			this.originalCollection = null;
+			this.searchTerms = {
+				'airlineCode': '',
+				'class': ''
+			};
+			_.bindAll(this, 'searchInput');
+		},
+
+		searchInput: function(event) {
+			if (_.isNumber(event.which) && event.which > 0) {
+				var searchTerm = $(event.target).val(),
+					searchFilter = $(event.target).data('type'),
+					filterChanged = false,
+					results;
+
+				this.copyCollection();
+				this.searchTerms[searchFilter] = searchTerm;
+
+				if (this.searchTerms.airlineCode === '' && this.searchTerms.class === '') {
+					this.collection.set(this.originalCollection.models);
+				} else {
+					if (this.searchTerms[searchFilter] === '') {
+						filterChanged = true;
+						if (searchFilter === 'airlineCode') {
+							searchFilter = 'class';
+						} else {
+							searchFilter = 'airlineCode';
+						}
+						searchTerm = this.searchTerms[searchFilter];
+					}
+
+					results = this[filterChanged ? 'originalCollection' : 'collection'].filter(function(data) {
+						var val = data.attributes[searchFilter].toLowerCase();
+						return val.match(new RegExp(searchTerm));
+					});
+					this.collection.reset(results);
+				}
+			}
+		},
+
+		copyCollection: function() {
+			if (this.originalCollection === null) {
+				this.originalCollection = this.collection.clone();
+			}
+		}
 	});
 })();
