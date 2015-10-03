@@ -1,0 +1,27 @@
+body
+{
+	font: 0.75em/1.4em Arial,Helvetica,sans-serif;
+    padding: 0;
+	margin: 0 auto;
+	text-align: justify;
+	background: url(../assets/background.png) repeat;
+}
+
+
+#bodyWrapper {
+    width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/*font: 20px "Trebuchet MS",Arial,Helvetica,sans-serif;*/
+
+#content {
+	padding: 10px;
+	background: url(../assets/wrapper_bg.png) repeat;
+	color: #fff;
+}
+
+.book_info {
+	width: 100%;
+}
