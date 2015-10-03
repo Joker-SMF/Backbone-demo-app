@@ -10,6 +10,7 @@
 
 .my_scroll {
 	float: left;
+	width: 100%;
 }
 
 /*.flight_info {
@@ -34,4 +35,8 @@
 .book-info {
 	padding-left: 10px;
 	width: calc(100% - 128px);
+}
+
+.row {
+	margin: 0;
 }

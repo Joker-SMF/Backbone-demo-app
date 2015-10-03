@@ -16,6 +16,8 @@
 		},
 
 		parse: function(resp) {
+			App.data = resp;
+
 			return resp.flightsData;
 		}
 	});

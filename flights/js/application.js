@@ -10,6 +10,7 @@
 	App.routers = App.routers || {};
 	App.subController = App.subController || {};
 	App.currentController = App.currentController || {};
+	App.data = {};
 
 	App.addRegions({
 		mainRegion: "#content"

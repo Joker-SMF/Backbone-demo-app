@@ -1,7 +1,13 @@
 <li class="flight_info">
 	<div class="row session">
-		<div class="well col-xs-11">
-			<%= originCode %> : <%= price %>
+		<div class="well col-xs-12">
+			<h4 class="well-title">From <%=App.data.airportMap[originCode]%> to <%=App.data.airportMap[destinationCode]%></h4>
+			<span><strong>Airline</strong> - <%=App.data.airlineMap[airlineCode]%></span><br />
+			<span><strong>Price</strong> - Rs. <%=price%></span><br />
+			<span><strong>Class</strong> - <%=travelClass%></span><br />
+			<span><strong>Take off Time</strong> - <%=takeoffTime%></span><br />
+			<span><strong>Landing Time</strong> - <%=landingTime%></span><br />
+			<span><strong>Flight Duration</strong> - <%=hourDiff%> hour and <%=minuteDiff%> minutes</span><br />
 		</div>
 	</div>
 </li>
