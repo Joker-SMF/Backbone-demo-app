@@ -53,7 +53,7 @@
 
 		addScroll: function() {
 			var scrollClass = (this.scrollArea.className) ? this.scrollArea.className : 'my_scroll';
-			$(this.scrollArea.element).wrap('<div class="' + scrollClass + '"</div>');
+			$(this.scrollArea.element).wrap('<div class="' + scrollClass + '"></div>');
 			scrollClass = '.' + scrollClass;
 
 			var _this = this,
