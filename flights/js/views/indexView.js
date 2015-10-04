@@ -15,8 +15,8 @@
 				airlineCode = this.model.get('airlineCode'),
 				price = this.model.get('price'),
 				travelClass = this.model.get('class'),
-				takeoffTime = moment(parseInt(this.model.get('takeoffTime'), 10)),
-				landingTime = moment(parseInt(this.model.get('landingTime'), 10)),
+				takeoffTime = moment(this.model.get('takeoffTime')),
+				landingTime = moment(this.model.get('landingTime')),
 				difference = moment.duration(landingTime.diff(takeoffTime)),
 				hourDiff = parseInt(difference.asHours(), 10),
 				minuteDiff = parseInt(difference.asMinutes(), 10) - hourDiff * 60;
@@ -49,7 +49,8 @@
 		},
 
 		events: {
-			'keyup .searchInput': 'searchInput'
+			'keyup .searchInput': 'searchInput',
+			'change #sortBy': 'sortData'
 		},
 
 		initialize: function() {
@@ -58,7 +59,13 @@
 				'airlineCode': '',
 				'class': ''
 			};
-			_.bindAll(this, 'searchInput');
+			_.bindAll(this, 'searchInput', 'sortData');
+		},
+
+		copyCollection: function() {
+			if (this.originalCollection === null) {
+				this.originalCollection = this.collection.clone();
+			}
 		},
 
 		searchInput: function(event) {
@@ -93,10 +100,16 @@
 			}
 		},
 
-		copyCollection: function() {
-			if (this.originalCollection === null) {
-				this.originalCollection = this.collection.clone();
-			}
+		sortData: function(event) {
+			var optionSelected = $(event.target).find("option:selected"),
+				sortKey = optionSelected.data('type'),
+				sortDir = optionSelected.data('dir');
+
+			this.collection.sortCollection({
+				'sortKey': sortKey,
+				'isAsc': (sortDir === '+') ? true : false
+			});
+			this.collection.trigger('reset');
 		}
 	});
 })();

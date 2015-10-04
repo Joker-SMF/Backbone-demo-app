@@ -6,13 +6,13 @@
 		<input data-type="class" class="form-control searchInput" type="text" placeholder="By Class..." />
 	</div>
 	<div class="col-xs-4">
-		<select class="form-control input-small">
-			<option selected value="earlytakeoff">Earlier take off</option>
-			<option value="latetakeoff">Late take off</option>
-			<option value="earlylandingtime">Early take off</option>
-			<option value="latelandingtime">Late take off</option>
-			<option value="cheapprice">Cheapest</option>
-			<option value="costlyprice">Costliest</option>
+		<select class="form-control input-small" id="sortBy">
+			<option selected value="earlytakeoff" data-type="takeoffTime" data-dir="+">Earlier take off</option>
+			<option value="latetakeoff" data-type="takeoffTime" data-dir="-">Late take off</option>
+			<option value="earlylandingtime" data-type="landingTime" data-dir="+">Early take off</option>
+			<option value="latelandingtime" data-type="landingTime" data-dir="-">Late take off</option>
+			<option value="cheapprice" data-type="price" data-dir="+">Cheapest</option>
+			<option value="costlyprice" data-type="price" data-dir="-">Costliest</option>
 		</select>
 	</div>
 </div>
