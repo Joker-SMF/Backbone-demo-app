@@ -40,7 +40,7 @@
 		itemView: App.views.indexItemView,
 		customEl: 'show_flight_details',
 		tagName: 'div',
-		className: 'books_listing',
+		className: 'flights_listing',
 		scrollArea: {
 			applyScroll: false,
 			element: '.show_flight_details',

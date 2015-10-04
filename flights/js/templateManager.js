@@ -12,7 +12,7 @@
 	Backbone.Marionette.TemplateCache.prototype.loadTemplate = function(templateId) {
 		var template, templateUrl;
 
-		templateUrl = App.settings.path + templateId + App.settings.extension;
+		templateUrl = 'templates/' + templateId + '.template.html';
 		$.ajax({
 			url: templateUrl,
 			dataType: 'text',

@@ -17,17 +17,7 @@
 	});
 
 	App.addInitializer(function(options) {
-		App.customRoutes = new App.mainRouters({
-			controller: App.controller.routeFuncs
-		});
-		App.customRoutes.on('beforeroute', App.controller.beforeRoute);
-		App.customRoutes.on('onRoute', App.controller.onRoute);
-	});
-
-	App.bind('initialize:after', function(options) {
-		if (Backbone.history) {
-			Backbone.history.start();
-		}
+		App.controller.indexController();
 	});
 
 	Backbone.Marionette.CompositeView = Backbone.Marionette.CompositeView.extend({

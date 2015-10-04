@@ -3,14 +3,6 @@ window.App = window.App || {};
 App.controller = {
 	initialize: function() {},
 
-	beforeRoute: function(e, args) {
-		console.log('beforeroute');
-	},
-
-	onRoute: function(route, linkedCall, params) {
-		console.log('onRoute params: ', params);
-	},
-
 	subController: function(params) {
 		var defaults = {
 			region: 'mainRegion'
@@ -20,11 +12,9 @@ App.controller = {
 		App.currentController[params.name] = new App.subController[params.name](args);
 	},
 
-	routeFuncs: {
-		index: function() {
-			App.controller.subController({
-				name: 'indexPage'
-			});
-		}
+	indexController: function() {
+		App.controller.subController({
+			name: 'indexPage'
+		});
 	}
 };
